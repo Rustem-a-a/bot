@@ -26,7 +26,6 @@ const fooRandom = async (chatId) => {
     await bot.sendMessage(chatId, 'Я загадаю число от 1 до 10,а ты попробуй его отгадать')
     const randomForGame = Math.floor(Math.random() * 10)
     gameData[chatId] = randomForGame
-    console.log(gameData)
     await bot.sendMessage(chatId, 'Отгадывай,у тебя одна попытка', gameOptions)
 }
 
@@ -40,8 +39,6 @@ const start = () => {
         const text = msg.text
         const chatId = msg.chat.id
         const userName = msg.chat.first_name
-        console.log(1)
-        console.log(msg)
         if (text === '/start') {
             await bot.sendSticker(chatId, 'https://cdn.tlgrm.app/stickers/09a/ef2/09aef250-2252-34d0-876f-5b3b1e08869d/192/1.webp')
             return bot.sendMessage(chatId, 'Привет!')
@@ -57,7 +54,6 @@ const start = () => {
     bot.on('callback_query', async msg => {
             const chatId = msg.message.chat.id
             const data = msg.data
-            console.log(data)
             if ('/again' === data) {
                 return fooRandom(chatId)
             }
