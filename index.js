@@ -52,7 +52,7 @@ const start = () => {
         if (text === '/game') {
             return fooRandom(chatId)
         }
-        return bot.sendMessage(chatId, 'Я тебя не понял')
+        return bot.sendMessage(chatId, 'Я тебя не понял. Выбери категорию в меню - слева от поля ввода')
     })
     bot.on('callback_query', async msg => {
             const chatId = msg.message.chat.id
