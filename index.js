@@ -1,6 +1,6 @@
 import TelegramBot from 'node-telegram-bot-api'
 
-const token = '6091989661:AAGm1GGlSvqp6LhXOzOeINZq7TwYVYMCP-4'
+const token = '6091989661:AAEPtp0gg90jG9MGPgO6hWtccmNkivFgl6k'
 
 const bot = new TelegramBot(token, {polling: true})
 
@@ -60,9 +60,9 @@ const start = () => {
             if (gameData[chatId] == data) {
                 await bot.sendMessage(chatId, 'Ты отгадал')
                 await bot.sendSticker(chatId,'https://tlgrm.ru/_/stickers/571/59b/57159b97-c35e-4d71-ae4b-a36aeb51166a/192/17.webp')
-                await bot.sendMessage(chatId, 'Хочешь еще раз сыграть?', againOptions)
+               return  bot.sendMessage(chatId, 'Хочешь еще раз сыграть?', againOptions)
             } else {
-                bot.sendMessage(chatId, 'Ты не отгадал')
+               return  bot.sendMessage(chatId, 'Ты не отгадал')
             }
 
         }
